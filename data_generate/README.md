@@ -1,3 +1,5 @@
+# OPENAI KEY .env 사용방법
+
 .env 파일을 생성후,
 
 ```
