@@ -1,6 +1,6 @@
 {
   "Question_Number": "Q1",
-  "Question_Description": "한 회사가 여러 대륙의 도시들에서 온도, 습도, 대기압 데이터를 수집하고 있습니다. 각 사이트에서 매일 수집하는 평균 데이터 볼륨은 500GB입니다. 각 사이트는 고속 인터넷 연결을 보유하고 있습니다. 회사는 이러한 모든 글로벌 사이트의 데이터를 단일 Amazon S3 버킷에 가능한 한 빠르게 집계하려고 합니다. 솔루션은 운영 복잡성을 최소화해야 합니다. 이러한 요구사항을 충족하는 솔루션은 무엇입니까?",
+  "Question_Description_Korean": "한 회사가 여러 대륙의 도시들에서 온도, 습도, 대기압 데이터를 수집하고 있습니다. 각 사이트에서 매일 수집하는 평균 데이터 볼륨은 500GB입니다. 각 사이트는 고속 인터넷 연결을 보유하고 있습니다. 회사는 이러한 모든 글로벌 사이트의 데이터를 단일 Amazon S3 버킷에 가능한 한 빠르게 집계하려고 합니다. 솔루션은 운영 복잡성을 최소화해야 합니다. 이러한 요구사항을 충족하는 솔루션은 무엇입니까?",
   "Domain": "고성능 아키텍처 설계",
   "Tasks": ["3.1", "3.4"],
   "Keywords": ["Amazon S3", "빠른 데이터 집계", "글로벌 사이트", "운영 복잡성 최소화"],
@@ -16,19 +16,19 @@
   "Commentary": "이 문제는 글로벌 분산 환경에서 대용량 데이터를 중앙화된 S3 버킷으로 빠르고 간단하게 집계하는 최적의 방법을 찾는 문제입니다. S3 Transfer Acceleration은 CloudFront의 글로벌 Edge Location 네트워크를 활용하여 전 세계 어디서든 S3로의 업로드 속도를 크게 향상시킵니다. Multipart Upload와 결합하면 500GB의 대용량 파일을 여러 부분으로 나누어 병렬로 업로드할 수 있어 전송 시간을 대폭 단축시킵니다.",
   "Selections": {
     "SelectA": {
-      "Select": "대상 S3 버킷에서 S3 Transfer Acceleration을 활성화합니다. multipart upload를 사용하여 사이트 데이터를 대상 S3 버킷에 직접 업로드합니다.",
+      "Select_Korean": "대상 S3 버킷에서 S3 Transfer Acceleration을 활성화합니다. multipart upload를 사용하여 사이트 데이터를 대상 S3 버킷에 직접 업로드합니다.",
       "Commentary": "S3 Transfer Acceleration과 Multipart Upload를 활용하여 글로벌 Edge Location을 통해 대용량 데이터를 직접 목적지 S3 버킷으로 빠르고 간단하게 업로드하는 최적의 솔루션입니다."
     },
     "SelectB": {
-      "Select": "각 사이트의 데이터를 가장 가까운 리전의 S3 버킷에 업로드합니다. S3 Cross-Region Replication을 사용하여 객체를 대상 S3 버킷에 복사합니다. 그런 다음 원본 S3 버킷에서 데이터를 제거합니다.",
+      "Select_Korean": "각 사이트의 데이터를 가장 가까운 리전의 S3 버킷에 업로드합니다. S3 Cross-Region Replication을 사용하여 객체를 대상 S3 버킷에 복사합니다. 그런 다음 원본 S3 버킷에서 데이터를 제거합니다.",
       "Commentary": "리전별 중간 S3 버킷 생성 → CRR 복제 → 원본 삭제의 2단계 과정으로 운영 복잡성이 높고, 비동기 복제로 인한 지연과 추가 비용이 발생하여 비효율적입니다."
     },
     "SelectC": {
-      "Select": "각 사이트에서 가장 가까운 리전으로 데이터를 전송하기 위해 AWS Snowball Edge Storage Optimized 디바이스 작업을 매일 예약합니다. S3 Cross-Region Replication을 사용하여 객체를 대상 S3 버킷에 복사합니다.",
+      "Select_Korean": "각 사이트에서 가장 가까운 리전으로 데이터를 전송하기 위해 AWS Snowball Edge Storage Optimized 디바이스 작업을 매일 예약합니다. S3 Cross-Region Replication을 사용하여 객체를 대상 S3 버킷에 복사합니다.",
       "Commentary": "물리적 Snowball 디바이스는 배송에 며칠이 소요되어 매일 사용이 불가능하며, 이미 고속 인터넷이 있는 환경에서는 불필요하고 극도로 복잡한 솔루션입니다."
     },
     "SelectD": {
-      "Select": "각 사이트의 데이터를 가장 가까운 리전의 Amazon EC2 인스턴스에 업로드합니다. Amazon Elastic Block Store(Amazon EBS) 볼륨에 데이터를 저장합니다. 정기적으로 EBS 스냅샷을 생성하고 대상 S3 버킷이 있는 리전에 복사합니다. 해당 리전에서 EBS 볼륨을 복원합니다.",
+      "Select_Korean": "각 사이트의 데이터를 가장 가까운 리전의 Amazon EC2 인스턴스에 업로드합니다. Amazon Elastic Block Store(Amazon EBS) 볼륨에 데이터를 저장합니다. 정기적으로 EBS 스냅샷을 생성하고 대상 S3 버킷이 있는 리전에 복사합니다. 해당 리전에서 EBS 볼륨을 복원합니다.",
       "Commentary": "EC2 → EBS → 스냅샷 → 리전 간 복사 → 복원 → S3 전송의 다단계 프로세스로 과도하게 복잡하며, S3 직접 업로드 대비 속도와 효율성이 현저히 떨어집니다."
     }
   }
