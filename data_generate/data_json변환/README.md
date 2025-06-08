@@ -16,6 +16,10 @@
 
 * Python 3.6 이상
 
+* `parsed_gpt_response.jsonl` 파일에 `Domain`, `Tasks`, `Keywords`, `Terms` 필드가 포함되어 있어야 합니다
+
+* Python 3.6 이상
+
 ---
 
 ## 📦 설치 및 실행
@@ -60,12 +64,12 @@
 
 ```bash
 python transform_and_merge.py \
-  -i /mnt/data/parsed_gpt_response.jsonl \
-  -q /mnt/data/question.json \
-  -o /mnt/data/questions_fixed_complete.json
+  -i parsed_gpt_response.jsonl \
+  -q question.json \
+  -o questions_fixed_complete.json
 ```
 
-위 명령을 실행하면, 입력된 JSONL 파일을 변환하면서 `question.json`에서 `Answer`와 `Link`를 병합하여 `/mnt/data/questions_fixed_complete.json` 파일로 출력합니다.
+위 명령을 실행하면, 입력된 JSONL 파일을 변환하면서 `question.json`에서 `Answer`와 `Link`를 병합하여 `questions_fixed_complete.json` 파일로 출력합니다.
 
 ---
 
