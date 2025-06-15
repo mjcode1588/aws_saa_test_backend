@@ -661,8 +661,8 @@
   {
     "Question_Number": "Q19",
     "Question_Description": "회사에 AWS에 배포된 3계층 웹 애플리케이션이 있습니다. 웹 서버는 VPC의 퍼블릭 서브넷에, 애플리케이션 서버와 데이터베이스 서버는 동일한 VPC의 프라이빗 서브넷에 배포되어 있습니다. 회사는 AWS Marketplace의 타사 가상 방화벽 어플라이언스를 검사 VPC에 배포했습니다. 어플라이언스는 IP 패킷을 수락할 수 있는 IP 인터페이스로 구성됩니다. 솔루션 설계자는 트래픽이 웹 서버에 도달하기 전에 애플리케이션에 대한 모든 트래픽을 검사하고자 합니다. 최소한의 운영 오버헤드로 이 요구 사항을 충족하려면 어떤 솔루션을 사용해야 합니까?",
-    "Answer": null,
-    "Link": null,
+    "Answer": "D",
+    "Link": "",
     "AnswerDescription": "이 문제의 핵심은 VPC 환경에서 웹 트래픽이 방화벽 어플라이언스를 반드시 거치도록 하여 모든 패킷을 검사하는 것입니다. Gateway Load Balancer는 방화벽 같은 가상 어플라이언스를 쉽게 배포하고 트래픽을 전달할 수 있어 운영 오버헤드를 최소화합니다.",
     "Domain": "보안 아키텍처 설계",
     "Tasks": [
@@ -947,8 +947,8 @@
   {
     "Question_Number": "Q27",
     "Question_Description": "회사는 새 애플리케이션을 시작하며 Amazon CloudWatch 대시보드에서 애플리케이션 지표를 모니터링합니다. 회사의 제품 관리자는 AWS 계정이 없지만, 이 대시보드를 주기적으로 확인해야 합니다. 솔루션 설계자는 최소 권한 원칙에 따라 이 대시보드에 대한 접근 권한을 제공해야 합니다. 어떤 솔루션이 이러한 요구 사항을 충족합니까?",
-    "Answer": null,
-    "Link": null,
+    "Answer": "A",
+    "Link": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch-dashbo",
     "AnswerDescription": "이 문제는 AWS 계정이 없는 사용자에게 필요 최소한의 권한만 부여하여 CloudWatch 대시보드를 접근하도록 설계하는 시나리오입니다. CloudWatch 대시보드의 공유 기능을 사용하면, IAM 자격 증명 없이도 이메일을 통해 안전하고 간단하게 접근 권한을 제공할 수 있습니다. 다른 옵션들은 IAM 사용자 생성 혹은 배스천 서버 활용 등으로 과도하게 복잡하거나 권한 범위가 넓습니다.",
     "Domain": "보안 아키텍처 설계",
     "Tasks": [
@@ -984,8 +984,8 @@
   {
     "Question_Number": "Q28",
     "Question_Description": "회사는 애플리케이션을 AWS로 마이그레이션하고 있습니다. 이 애플리케이션은 여러 AWS 계정에 배포될 예정이며, 회사는 AWS Organizations를 사용해 계정을 중앙에서 관리합니다. 회사 보안 팀은 모든 계정에서 Single Sign-On(SSO) 솔루션을 사용해야 한다고 요구합니다. 또한 사용자와 그룹은 사내에서 자체 관리하는 Microsoft Active Directory에서 계속 관리해야 합니다. 이러한 요구 사항을 만족하는 솔루션은 무엇입니까?",
-    "Answer": null,
-    "Link": null,
+    "Answer": "B",
+    "Link": "https://docs.aws.amazon.com/ko_kr/IAM/latest/UserGuide/id_roles_providers.html",
     "AnswerDescription": "이 문제는 사내 Microsoft AD 사용을 유지하면서 여러 AWS 계정을 통합 관리하기 위한 AWS SSO 설정을 묻습니다. AWS SSO와 Microsoft AD 연동에는 양방향 트러스트 설정이 핵심이며, 온프레미스 사용자와 그룹 정보를 변경 없이 사용하는 방법을 이해해야 합니다.",
     "Domain": "보안 아키텍처 설계",
     "Tasks": [
@@ -1019,8 +1019,8 @@
   {
     "Question_Number": "Q29",
     "Question_Description": "회사는 UDP 연결을 사용하는 VoIP(Voice over Internet Protocol) 서비스를 제공합니다. 이 서비스는 Auto Scaling 그룹에서 실행되는 Amazon EC2 인스턴스로 구성됩니다. 회사는 여러 AWS 리전에 배포하고 있습니다. 회사는 지연 시간이 가장 짧은 리전으로 사용자를 라우팅해야 합니다. 또한 지역 간 자동 장애 조치가 필요합니다. 어떤 솔루션이 이러한 요구 사항을 충족합니까?",
-    "Answer": null,
-    "Link": null,
+    "Answer": "A",
+    "Link": "https://aws.amazon.com/global-accelerator/faqs/",
     "AnswerDescription": "이 문제는 UDP 기반 VoIP 서비스에 대해 가장 낮은 지연 시간을 제공하고 지역 간 장애 조치를 자동화할 방법을 묻습니다. NLB와 AWS Global Accelerator를 결합해 Anycast IP와 전역 로드 밸런싱을 활용하는 것이 핵심이며, 이를 통해 사용자에게 가장 가까운 리전으로 트래픽을 분산하고 자동 장애 조치까지 수행할 수 있습니다.",
     "Domain": "복원력을 갖춘 아키텍처 설계",
     "Tasks": [
@@ -1236,8 +1236,8 @@
   {
     "Question_Number": "Q35",
     "Question_Description": "한 회사가 AWS 클라우드에서 공개 웹 애플리케이션 출시를 준비하고 있습니다. 아키텍처는 Elastic Load Balancer(ELB) 뒤의 VPC 내 Amazon EC2 인스턴스로 구성됩니다. DNS에는 타사 서비스가 사용됩니다. 회사의 솔루션 설계자는 대규모 DDoS 공격을 감지하고 보호하기 위한 솔루션을 권장해야 합니다. 어떤 솔루션이 이러한 요구 사항을 충족합니까?",
-    "Answer": null,
-    "Link": null,
+    "Answer": "D",
+    "Link": "https://aws.amazon.com/ko/shield/?whats-new-cards.sort-by=item.additionalFields.post",
     "AnswerDescription": "이 문제는 웹 애플리케이션을 대규모 DDoS 공격으로부터 보호하기 위한 솔루션을 찾는 상황입니다. AWS Shield Advanced는 다양한 리소스에 대해 실시간에 가까운 가시성과 추가 보호를 제공하므로 적합합니다.",
     "Domain": "보안 아키텍처 설계",
     "Tasks": [
@@ -1780,8 +1780,8 @@
   {
     "Question_Number": "Q50",
     "Question_Description": "회사는 1,000개의 Amazon EC2 Linux 인스턴스에서 프로덕션 워크로드를 운영하고 있습니다. 해당 워크로드는 타사 소프트웨어에 의존하며, 보안 취약점을 가능한 한 신속하게 패치해야 합니다. 솔루션 설계자는 이러한 요구 사항을 충족하기 위해 무엇을 해야 합니까?",
-    "Answer": null,
-    "Link": null,
+    "Answer": "D",
+    "Link": "https://docs.aws.amazon.com/ko_kr/systems-manager/latest/userguide/about-windows-",
     "AnswerDescription": "이 문제는 대규모 EC2 인스턴스 환경에서 보안 패치를 빠르고 일관되게 적용하는 방법을 묻습니다. 선택지는 각기 다른 AWS 기능을 활용하는 시나리오를 제시하며, 긴급 패치가 요구되는 상황에서 가장 효율적인 방안을 고르는 것이 핵심입니다.",
     "Domain": "보안 아키텍처 설계",
     "Tasks": [
@@ -2152,8 +2152,8 @@
   {
     "Question_Number": "Q60",
     "Question_Description": "회사에 AWS 에서 호스팅되는 웹 사이트가 있습니다. 웹 사이트는 HTTP 와 HTTPS 를 별도로 처리하도록 구성된 ALB(Application Load Balancer) 뒤에 있습니다. 회사는 요청이 HTTPS 를 사용하도록 모든 요청을 웹사이트로 전달하려고 합니다. 솔루션 설계자는 이 요구 사항을 충족하기 위해 무엇을 해야 합니까?",
-    "Answer": null,
-    "Link": null,
+    "Answer": "C",
+    "Link": "https://repost.aws/ko/knowledge-center/elb-redirect-http-to-https-using-alb",
     "AnswerDescription": "이 문제는 ALB 뒤에서 모든 요청을 HTTPS로 강제하기 위한 보안 구성 방법을 묻습니다. 올바른 설정은 HTTP 요청이 들어오면 ALB Listener Rule을 통해 자동으로 HTTPS로 리디렉션하는 것입니다.",
     "Domain": "보안 아키텍처 설계",
     "Tasks": [

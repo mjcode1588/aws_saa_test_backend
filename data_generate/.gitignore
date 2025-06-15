@@ -69,3 +69,6 @@ env/
 *.njsproj
 *.sln
 *.sw?
+
+#csv
+.csv
